@@ -1,0 +1,33 @@
+.presentations-page {
+  padding: 20px 30px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.presentation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.presentation-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 300px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  width: 60%;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+}

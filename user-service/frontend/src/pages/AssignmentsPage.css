@@ -1,0 +1,650 @@
+/* =================== Assignments Page =================== */
+.assignments-page {
+  padding: 20px 30px;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.controls input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  outline: none;
+}
+
+.controls button {
+   padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: #2563eb;
+}
+
+/* Assignment Cards */
+.assignments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.assignment-card {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  padding: 0; 
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.assignment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.assignment-card h3 {
+  display: flex; 
+    width: 100%;
+    box-sizing: border-box;
+    
+    
+    background: linear-gradient(to right, #f0e0ff, #c3b6ff); 
+    background: linear-gradient(to right, #e8f9ff, #c4d9ff, #c5baff); 
+    
+     border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin: 0;
+    align-items: center; 
+    padding: 0 22px; 
+    height: 50px; 
+    
+    font-size: 1.1em; 
+    font-weight: 600;
+    color: #5d4291; 
+}
+
+.assignment-card p {
+  font-size: 15px;
+    color: #555;
+    /* FIX: Apply horizontal padding here. The top margin is added below. */
+    padding: 0 22px; 
+    margin: 0; /* Remove default paragraph margin */
+    flex: 1; /* Keep flex property */
+}
+.assignment-card p:first-of-type {
+    padding-top: 15px; /* Add space between header and description */
+}
+/* Adjusting the Due Date padding */
+.assignment-card p:last-of-type {
+    /* Ensures there is a margin before the actions block */
+    padding-bottom: 15px; 
+}
+
+
+/* Action Buttons */
+.actions {
+  display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    /* FIX: Apply horizontal padding to align with text */
+    padding: 0 22px 22px 22px; 
+    margin-top: 0; /* Clear any previous top margin */
+}
+
+.actions button {
+  flex: 1;
+  min-width: 90px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+}
+
+.actions button:nth-child(1) {
+  background: #6495ED; /* View */
+}
+.actions button:nth-child(1):hover {
+  background: #6495ED;
+}
+
+.actions button:nth-child(2) {
+  background: #0F52BA; /* Download */
+}
+.actions button:nth-child(2):hover {
+  background: #0F52BA;
+}
+
+/* NEW: Style for Teacher Edit button (index 3 when Teacher) */
+.actions button.secondary {
+    background: #1434A4; /* Edit */
+}
+.actions button.secondary:hover {
+    background: #1434A4;
+}
+
+/* Delete (index 4 or 3 depending on role) */
+.actions button:nth-child(4), 
+.actions button:last-child[onClick*="deleteTarget"] {
+  background: #ef4444;
+}
+.actions button:nth-child(4):hover, 
+.actions button:last-child[onClick*="deleteTarget"]:hover {
+  background: #dc2626;
+}
+
+/* View Submissions / Submit (index 5 or 3 depending on role) */
+.actions button:last-child:not([onClick*="deleteTarget"]) {
+  background: #87CEEB;
+}
+.actions button:last-child:not([onClick*="deleteTarget"]):hover {
+  background: #87CEEB;
+}
+
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  width: 520px;
+  max-width: 95%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.popup label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5d4291;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.popup-header {
+  color: #5a43aa;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ef4444;
+}
+
+.close-btn:hover {
+  color: #dc2626;
+}
+
+.popup input[type="text"],
+.popup input[type="date"],
+.popup input[type="file"],
+.popup input,
+.popup textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+   margin-bottom: 15px;
+   display: block;
+}
+.popup-box input:focus {
+  outline: none;
+  border-color: #2575fc;
+  box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+}
+/* Popup Actions */
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.popup-actions button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-actions button:first-child {
+  background: #5d4291;
+  color: white;
+}
+.popup-actions button:first-child:hover {
+  background: #5d4291;
+}
+
+.popup-actions .secondary {
+  background: #ef4444;
+  color: white;
+}
+.popup-actions .secondary:hover {
+  background: #dc2626;
+}
+
+/* =================== Student Submission Page =================== */
+.submission-popup .submission-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.submission-upload input[type="file"] {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  border-color: #2575fc;
+  padding: 8px;
+}
+
+.submission-upload button {
+  width: 140px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  background: #3b82f6;
+  cursor: pointer;
+}
+
+.submission-upload button:hover {
+  background: #2563eb;
+}
+
+/* Style for message when past due date */
+.submission-upload .past-due {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ef4444;
+    margin: 0;
+}
+
+/* Submission List (Student) */
+.submissions-list-student { /* Renamed for consistency with teacher list */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Individual Submission Card (Student) */
+.submission-card-student {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  background: #fefefe;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submission-card-student:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.submission-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #5d4291;
+}
+
+.submission-info .feedback {
+  font-size: 13px;
+  color: #5d4291;
+  margin-top: 8px;
+  padding-top: 5px;
+  border-top: 1px dashed #e0e0e0;
+}
+
+.submission-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.submission-actions button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+}
+
+.submission-actions button:nth-child(1) {
+  background: #3b82f6;
+}
+
+.submission-actions button:nth-child(1):hover {
+  background: #2563eb;
+}
+
+.submission-actions .danger {
+  background: #ef4444;
+}
+
+.submission-actions .danger:hover {
+  background: #dc2626;
+}
+
+/* Scrollbar for Student Submissions */
+.submissions-list-student::-webkit-scrollbar {
+  width: 6px;
+}
+
+.submissions-list-student::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.submissions-list-student::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* =================== Teacher View Submissions =================== */
+.submissions-list-teacher {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 70vh; /* This ensures the scroll bar appears */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.submission-card-teacher {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: start;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submission-card-teacher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.submission-card-teacher div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submission-card-teacher input[type="number"],
+.submission-card-teacher textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.submission-card-teacher textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.teacher-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacher-actions button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+}
+
+.teacher-actions button:nth-child(1) {
+  background: #3b82f6; /* Save Grade */
+}
+
+.teacher-actions button:nth-child(1):hover {
+  background: #2563eb;
+}
+
+.teacher-actions button:nth-child(2) {
+  background: #0F52BA; /* View */
+}
+
+.teacher-actions button:nth-child(2):hover {
+  background: #0F52BA;
+}
+
+.teacher-actions .danger {
+  background: #ef4444; /* Delete */
+}
+
+.teacher-actions .danger:hover {
+  background: #dc2626;
+}
+
+/* Scrollbar styling for teacher submissions */
+.submissions-list-teacher::-webkit-scrollbar {
+  width: 6px;
+}
+
+.submissions-list-teacher::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.submissions-list-teacher::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.custom-select-list {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px; /* Limits the visible height, creating the scrollable box */
+    overflow-y: auto; /* Adds scrollbar when needed */
+    padding: 0;
+    margin-top: 5px;
+    width: 100%; /* Match the width of the input/textarea fields */
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+/* Individual student name item */
+.custom-list-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    user-select: none; /* Prevent text selection while clicking */
+}
+
+/* Hover state */
+.custom-list-item:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
+/* Selected state - similar to the native control look */
+.custom-list-item.selected {
+    background-color: #007bff; /* Primary blue color */
+    color: white; /* White text for contrast */
+}
+
+/* Ensure form groups have a bottom margin for spacing */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style for the <small> tag showing student count */
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #5d4291;
+}
+.custom-select-list {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.custom-list-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    user-select: none; /* Prevent text selection */
+}
+
+.custom-list-item:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-list-item.selected {
+    background-color: #e0f7fa; /* Light blue */
+    color: #00796b; /* Dark cyan text */
+    font-weight: bold;
+}
+
+/* Status Tags for Group Card/Member Card */
+.status-tag, .status-label {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* Member Card Styles */
+.submission-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.submission-card.graded {
+    border-left: 4px solid #4caf50; /* Green */
+    background-color: #f8fff8;
+}
+
+.submission-card.submitted {
+    border-left: 4px solid #ff9800; /* Orange */
+    background-color: #fffbf8;
+}
+
+.submission-card.assigned {
+    border-left: 4px solid #2196f3; /* Blue */
+    background-color: #f8fcff;
+}
+
+.submission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.grade-section {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.grade-input {
+    flex: 0 0 150px; /* Fixed width for marks */
+}
+
+.feedback-input {
+    flex-grow: 1;
+}
+
+.grade-section input[type="number"], .grade-section textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submission-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.submission-actions button {
+    padding: 8px 15px;
+}
+
+.graded-info {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.75em;
+}
+
+.file-info {
+    font-size: 0.9em;
+    color: #555;
+}

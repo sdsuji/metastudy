@@ -1,0 +1,365 @@
+/* Color Palette Reference:
+Primary/Accent Blue: #2575fc (from original gradient)
+Primary Blue for Buttons: #3b82f6 (Submit/Save/View - slightly lighter than the gradient)
+Darker Primary Blue: #0F52BA (Download/Secondary)
+Purple Accent: #5d4291, #5a43aa
+Danger Red: #ef4444 (and #dc2626 for hover)
+Light Backgrounds (Header Gradient): #e8f9ff, #c4d9ff, #c5baff
+Background/Text Color (Dark): #2563eb (Using a dark hover blue for dark text elements)
+*/
+
+.discussion-page {
+padding: 2.5rem 2rem;
+max-width: 900px;
+margin: 3rem auto 4rem;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: #fafafa; /* Keep light background */border-radius: 12px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+margin-bottom: 1.8rem;
+color: #5d4291; /* Use Purple Accent */
+font-weight: 700;
+font-size: 1.8rem;
+}
+
+.success-msg {
+color: #5d4291; /* Purple text for contrast */
+background-color: #f0e0ff; /* Very light purple/blue for success background */
+padding: 0.4rem 0.8rem;
+border-radius: 6px;
+font-size: 0.9rem;
+font-weight: 600;
+}
+
+.error-msg {
+color: #dc2626; /* Darker red for error text */
+background-color: #fceeee; /* Light red for error background */
+padding: 0.4rem 0.8rem;
+border-radius: 6px;
+font-size: 0.9rem;
+font-weight: 600;
+}
+
+.discussion-posts {
+margin-bottom: 2.5rem;
+}
+
+.discussion-post {
+background: #ffffff;
+border: 1px solid #e0e0e0;
+border-radius: 14px;
+padding: 1.2rem 1.5rem;
+margin-bottom: 1.8rem;
+box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+position: relative;
+transition: box-shadow 0.3s ease;
+}
+
+.discussion-post:hover {
+box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.post-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 0.7rem;
+font-weight: 700;
+color: #5d4291; /* Use Purple Accent */
+font-size: 1.05rem;
+}
+.post-controls {
+    display: flex; /* Arranges the buttons horizontally */
+    justify-content: flex-start; /* Aligns controls to the left */
+    align-items: center;
+    margin-top: 0.5rem; /* Add space between post text and the control bar */
+    padding-top: 0.5rem;
+    border-top: 1px solid #f0f0f0; /* Optional: adds a subtle separator line */
+    /* Remove any float or inline-block settings if they were present */
+    width: 100%; /* Ensure it spans the full width */
+}
+
+.post-controls button,
+.comment-controls button {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    cursor: pointer;
+    /* CHANGE THIS: Remove margin-left to prevent it from merging with the post content */
+    margin-left: 0; /* Ensures buttons start flush left in the post-controls container */
+    margin-right: 1rem; /* Use margin-right to space buttons apart */
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.post-controls button:hover,
+.comment-controls button:hover {
+color: #2563eb; /* Darker blue on hover */
+background-color: #e8f9ff; /* Light blue background on hover */
+}
+
+.timestamp {
+font-size: 0.85rem;
+color: #5a43aa; /* Use Purple Accent */
+margin-left: 1.2rem;
+font-style: italic;
+}
+
+.comments-section {
+margin-top: 1.2rem;
+padding-top: 0.7rem;
+border-top: 1px solid #e0e0e0; /* Keep light separator */
+}
+
+.comment {
+margin-bottom: 0.9rem;
+padding: 0.6rem 0.9rem;
+background: #f4f7f9; /* Keep a very light background for comments */
+border-radius: 8px;
+font-size: 0.95rem;
+color: #34495e; /* Keep dark gray for readability */
+box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.03);
+}
+
+.comment p {
+    margin: 0.25rem 0 0.5rem; /* Add some space below the text */
+}
+
+.comment-controls {
+    display: flex; /* Keeps the buttons themselves inline */
+    justify-content: flex-end; /* Aligns controls to the right within the comment */
+    margin-top: 0.5rem; /* Add space above the control bar */
+    padding-top: 0.5rem;
+    border-top: 1px dashed #e8e8e8; /* Subtle separator */
+    width: 100%; /* Ensure it spans the full width of the comment box */
+}
+
+.comment-form {
+display: flex;
+gap: 0.6rem;
+margin-top: 1rem;
+}
+
+.comment-form input {
+flex: 1;
+padding: 0.55rem 0.8rem;
+border-radius: 8px;
+border: 1px solid #ccc;
+font-size: 1rem;
+transition: border-color 0.2s ease;
+}
+
+.comment-form input:focus {
+outline: none;
+border-color: #2575fc; /* Use Primary Blue for focus border */
+box-shadow: 0 0 4px rgba(37, 117, 252, 0.3);
+}
+
+.comment-form button {
+padding: 0.5rem 1.2rem;
+background-color: #3b82f6; /* Use Primary Blue */
+color: white;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-weight: 600;
+transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+background-color: #2563eb; /* Use Darker Primary Blue on hover */
+}
+
+.discussion-form {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 2.2rem;
+}
+
+.discussion-form textarea {
+min-height: 120px;
+padding: 1rem 1.2rem;
+font-size: 1.1rem;
+border: 1.5px solid #ccc;
+border-radius: 12px;
+resize: vertical;
+transition: border-color 0.3s ease;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.discussion-form textarea:focus {
+outline: none;
+border-color: #5d4291; /* Use Purple Accent for focus border */
+box-shadow: 0 0 6px rgba(93, 66, 145, 0.3);
+}
+
+.discussion-form button {
+align-self: flex-end;
+padding: 0.65rem 1.8rem;
+background-color: #6a11cb; /* Use part of the main gradient color for distinction */
+color: white;
+border: none;
+border-radius: 12px;
+font-weight: 700;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.discussion-form button:hover {
+background-color: #5d4291; /* Darken purple on hover */
+}
+
+textarea,
+input[type='text'] {
+font-family: inherit;
+font-size: 1rem;
+color: #34495e; /* Keep dark gray for readability */
+}
+
+button {
+transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html,
+body {
+height: 100%;
+margin: 0;
+padding: 0;
+overflow: auto;
+}
+
+/* Delete confirmation */
+.confirmation-box {
+display: flex;
+align-items: center;
+gap: 1rem;
+background-color: #f9f9f9;
+border: 1.5px solid #bdc3c7;
+border-radius: 10px;
+padding: 0.6rem 1rem;
+margin-top: 0.6rem;
+font-weight: 600;
+color: #34495e; /* Darker text */
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+animation: fadeInConfirm 0.3s ease forwards;
+}
+
+.confirmation-box button {
+background-color: #ef4444; /* Use Danger Red for Confirm Delete */
+color: white;
+border: none;
+border-radius: 6px;
+padding: 0.35rem 0.9rem;
+cursor: pointer;
+font-weight: 700;
+transition: background-color 0.25s ease;
+}
+
+.confirmation-box button.cancel-btn {
+background-color: #e8f9ff; /* Lightest header blue for cancel background */
+color: #3b82f6; /* Primary blue for cancel text */
+}
+
+.confirmation-box button:hover {
+background-color: #dc2626; /* Darker red on hover */
+}
+
+.confirmation-box button.cancel-btn:hover {
+background-color: #c4d9ff; /* Darker light blue on hover */
+}
+
+@keyframes fadeInConfirm {
+from {
+ opacity: 0;
+ transform: translateY(-5px);
+}
+to {
+ opacity: 1;
+ transform: translateY(0);
+}
+}
+
+/* Edit box animation */
+.edit-container {
+overflow: hidden;
+max-height: 0;
+opacity: 0;
+transform: translateY(-10px);
+transition: max-height 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+margin-top: 0.8rem;
+}
+
+.fade-slide-in {
+max-height: 200px;
+opacity: 1;
+transform: translateY(0);
+}
+
+.edit-container textarea {
+width: 100%;
+padding: 0.6rem;
+font-size: 1rem;
+border-radius: 6px;
+border: 1px solid #ccc;
+resize: vertical;
+font-family: inherit;
+}
+
+.edit-buttons {
+margin-top: 0.4rem;
+display: flex;
+gap: 1rem;
+}
+
+.edit-buttons button {
+cursor: pointer;
+background-color: #3b82f6; /* Use Primary Blue for Save Edit */
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 5px;
+font-weight: 600;
+transition: background-color 0.25s ease;
+}
+
+.edit-buttons button:hover {
+background-color: #2563eb; /* Darker blue on hover */
+}
+
+.edit-buttons button:last-child {
+background-color: #f1f1f1; /* Light background for cancel */
+color: #ef4444; /* Danger red for cancel text */
+}
+
+.edit-buttons button:last-child:hover {
+background-color: #ccc;
+}
+.discussion-welcome {
+text-align: center;
+margin-bottom: 2rem;
+background: linear-gradient(
+    135deg,
+    #e8f9ff,
+    #c4d9ff,
+    #c5baff
+  ); /* Use a similar gradient from the assignment card header */
+padding: 1.5rem;
+border-radius: 12px;
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.discussion-welcome h2 {
+font-size: 2rem;
+color: #5d4291; /* Use Purple Accent */
+margin-bottom: 0.5rem;
+}
+
+.discussion-welcome p {
+font-size: 1.05rem;
+color: #5d4291; /* Use Purple Accent */
+}

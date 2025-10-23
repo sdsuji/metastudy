@@ -1,0 +1,36 @@
+
+
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(
+    circle at 0% 0%,
+    #fbfbfb,
+    #e8f9ff,
+    #c4d9ff,
+    #c5baff
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 1s ease-in;
+  overflow: hidden;
+}
+
+.splash-text {
+  color: #1e1e1e;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  text-shadow: 0 0 10px #c5baff, 0 0 20px #c4d9ff;
+}
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

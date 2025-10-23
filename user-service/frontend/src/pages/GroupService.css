@@ -1,0 +1,528 @@
+/* =================== Group Management Page =================== */
+.group-page {
+  padding: 20px 30px;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.controls input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  outline: none;
+}
+
+.controls input:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.15);
+}
+
+.controls button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: #2563eb;
+}
+
+/* =================== Group Cards =================== */
+.group-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.group-card {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.group-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.group-card h3 {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 22px;
+  margin: 0;
+  background: linear-gradient(to right, #e8f9ff, #c4d9ff, #c5baff);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #5d4291;
+}
+
+.group-card p {
+  font-size: 15px;
+  color: #555;
+  padding: 0 22px;
+  margin: 0;
+  flex: 1;
+}
+
+.group-card p:first-of-type {
+  padding-top: 15px;
+}
+.group-card p:last-of-type {
+  padding-bottom: 15px;
+}
+
+/* =================== Action Buttons =================== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 22px 22px 22px;
+}
+
+.actions button {
+  flex: 1;
+  min-width: 90px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* View */
+.actions button:nth-child(1) {
+  background: #6495ed;
+}
+.actions button:nth-child(1):hover {
+  background: #4a7bd8;
+}
+
+/* Edit */
+.actions button.secondary {
+  background: #1434a4;
+}
+.actions button.secondary:hover {
+  background: #0f2d88;
+}
+
+/* Delete */
+.actions .danger {
+  background: #ef4444;
+}
+.actions .danger:hover {
+  background: #dc2626;
+}
+
+/* Members */
+.actions button:last-child:not(.danger) {
+  background: #87ceeb;
+}
+.actions button:last-child:not(.danger):hover {
+  background: #5ebee2;
+}
+
+/* =================== Popups =================== */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  width: 520px;
+  max-width: 95%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.popup-header {
+  color: #5a43aa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ef4444;
+}
+
+.close-btn:hover {
+  color: #dc2626;
+}
+
+.popup label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5d4291;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.popup input,
+.popup textarea,
+.popup select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.popup input:focus,
+.popup textarea:focus,
+.popup select:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+}
+
+/* Popup Actions */
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.popup-actions button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.popup-actions button:first-child {
+  background: #5d4291;
+  color: white;
+}
+.popup-actions button:first-child:hover {
+  background: #4a3483;
+}
+
+.popup-actions .secondary {
+  background: #ef4444;
+  color: white;
+}
+.popup-actions .secondary:hover {
+  background: #dc2626;
+}
+
+/* =================== Student Selection =================== */
+.custom-select-list {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.custom-list-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.custom-list-item:hover {
+  background-color: #f0f0f0;
+}
+
+.custom-list-item.selected {
+  background-color: #6a11cb;
+  color: white;
+  font-weight: 500;
+}
+
+/* Scrollbar for student list */
+.custom-select-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-select-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.custom-select-list::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* Form group spacing */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group small {
+  color: #5d4291;
+  font-size: 13px;
+}
+
+/* Smooth popup fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -45%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+.popup {
+  animation: fadeIn 0.25s ease;
+}
+
+
+.popup-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #3c2b84;
+  font-weight: 600;
+}
+
+.grade-view {
+  background: #f6f4ff;
+  border-left: 5px solid #6c5ce7;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 20px;
+}
+
+.grade-view h4 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #2d3436;
+}
+
+.grade-view span {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.grade-view p {
+  color: #555;
+  line-height: 1.4;
+  margin: 5px 0;
+}
+
+.file-upload-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fafafa;
+  border: 1px dashed #aaa;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+}
+
+.file-upload-section:hover {
+  border-color: #6c5ce7;
+  background: #f9f8ff;
+}
+
+.file-upload-section label {
+  font-weight: 600;
+  color: #3c2b84;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.file-upload-section input[type="file"] {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.file-upload-section small {
+  display: block;
+  color: #666;
+}
+
+.popup-actions button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #6c5ce7;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-actions button:hover {
+  background: #5942c6;
+}
+
+.secondary {
+
+}
+
+.secondary:hover {
+  
+}
+
+.popup-msg {
+  background: #f9f8ff;
+  border-left: 4px solid #6c5ce7;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+    width: 95%;
+    padding: 20px;
+  }
+  .grade-view {
+    padding: 12px;
+  }
+}
+
+.grade-section {
+    display: flex; /* Enables side-by-side layout */
+    gap: 20px; /* Space between the two fields */
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.grade-input,
+.feedback-input {
+    flex: 1; /* CRITICAL: Makes both elements take up equal horizontal space */
+    min-width: 0;
+}
+
+
+
+/* 2. Make Save Grade button visible and style it */
+/* NOTE: This requires your button element to have the class 'save-grade-button' */
+.save-grade-button {
+    /* CRITICAL: Ensures visibility if the button was hidden by 'display: none' */
+    display: block !important;
+    
+    /* Styling to match other buttons and be full-width */
+    width: 100%; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #6c5ce7; /* Primary color */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.save-grade-button:hover {
+    background: #5942c6;
+}
+.feedback-input textarea {
+    /* Set a fixed height to match the single-line marks input */
+    height: 40px; /* Adjust this value if your marks input is taller/shorter */
+    resize: none; /* Disable resizing since the height is fixed */
+}
+
+/* =================== Assignment Card Styles (New) =================== */
+
+/* Base card inherited from .group-card (assuming assignment-card uses similar structure) */
+.assignment-card {
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 200px; /* Adjust height as needed */
+    overflow: hidden; /* Ensures content stays inside borders */
+}
+
+/* 1. Title Styling (h3) */
+.assignment-card h3 {
+    /* Existing style assumed, ensuring a clear header */
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 10px 22px; /* Adjusted vertical padding for better look */
+    margin: 0;
+    background: linear-gradient(to right, #e8f9ff, #c4d9ff, #c5baff);
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #5d4291;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* 2. Description Paragraph (p) */
+.assignment-card p {
+    font-size: 15px;
+    color: #555;
+    padding: 15px 22px 5px 22px; /* Top padding separates it from the title */
+    margin: 0;
+    flex-grow: 1; /* Allows description to take up available vertical space */
+    line-height: 1.5;
+}
+
+/* 3. Status/Member Label Container (.status-label) */
+.assignment-card .status-label {
+    /* Use padding to align text horizontally with h3 and p */
+    padding: 10px 22px 15px 22px;
+    margin-top: 5px; /* A little space from the description above */
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    border-top: 1px solid #eee; /* Optional: Separator line */
+    background-color: #f9f9f9; /* Optional: Slight background for distinction */
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.assignment-card .status-label p {
+    /* Reset padding for the inner paragraph used for "Group Members" */
+    padding: 0; 
+    margin: 0 0 5px 0; /* Space below member list */
+    color: #777;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.assignment-card .status-label span {
+    /* Highlight the dynamic content (like member names or grade) */
+    font-weight: 600;
+    color: #5d4291; /* Matches the theme color */
+    display: inline-block;
+    margin-left: 5px;
+    
+}

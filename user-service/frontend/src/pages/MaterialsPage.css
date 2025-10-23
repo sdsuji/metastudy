@@ -1,0 +1,346 @@
+/* --- Global Styles for Materials Page --- */
+.materials-page {
+  padding: 20px 30px;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.materials-page h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #222;
+  text-align: center;
+}
+
+/* Grid */
+.materials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Card */
+.material-card {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.material-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.material-header {
+  background: radial-gradient(
+    circle at 0% 0%,
+    #fbfbfb,
+    #e8f9ff,
+    #c4d9ff,
+    #c5baff
+  );
+  color: #5a43aa;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #eaeaea;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Search & Filter --- */
+.search-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.search-filter input {
+  padding: 12px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 15px;
+  width: 280px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat 14px center;
+  padding-left: 42px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.search-filter input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 3px rgba(66,133,244,0.35);
+}
+
+.search-filter select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 12px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 15px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  min-width: 160px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+}
+
+.search-filter select:hover {
+  border-color: #999;
+}
+
+.search-filter select:focus {
+  outline: none;
+  border-color: #34a853;
+  box-shadow: 0 0 0 3px rgba(52,168,83,0.25);
+}
+
+.upload-btn {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.upload-type {
+  margin: 10px 0;
+}
+
+.upload-type label {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #888;
+  padding: 40px 0;
+}
+
+/* Unit Section Styles (if used) */
+.unit-section {
+  margin-bottom: 40px;
+}
+
+.unit-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #3367d6;
+  border-left: 4px solid #3367d6;
+  padding-left: 10px;
+}
+
+.unit-materials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  justify-content: center;
+}
+
+/* --- Card Actions --- */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 16px;
+  border-top: 1px solid #f1f1f1;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.btn.view {
+  background: #6495ED;
+}
+.btn.view:hover {
+  background: #4169E1;
+}
+
+.btn.download {
+  background: #0F52BA;
+}
+.btn.download:hover {
+  background: #0b3d87;
+}
+
+.btn.edit-btn {
+  background: #6082B6;
+}
+.btn.edit-btn:hover {
+  background: #6082B6;
+}
+
+.btn.delete {
+  background: #ef4444;
+}
+.btn.delete:hover {
+  background: #dc2626;
+}
+
+/* --- Popup Overlays (General) --- */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 25px 28px;
+  border-radius: 14px;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-icon {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.close-icon:hover {
+  color: #e53935;
+}
+
+/* --- POPUP INPUT FIX: Ensures same width for text and file inputs --- */
+.popup-box input[type="text"],
+.popup-box input[type="file"] {
+  width: 100%; 
+  box-sizing: border-box; 
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.edit-file-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edit-file-input-group input[type="file"] {
+    margin-bottom: 5px;
+}
+
+.popup-box input:focus {
+  outline: none;
+  border-color: #2575fc;
+  box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+}
+
+/* --- PRIMARY BUTTON (Used by Upload Popup and now Edit Popup) --- */
+.primary {
+  /* This is the green gradient from the upload button */
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* * 🚨 CHANGE APPLIED HERE 🚨 
+ * Removed the specific blue gradient for .primary.edit-submit
+ * Now, the "Save Changes" button will inherit the green gradient from .primary.
+ */
+.primary.edit-submit {
+  /* No need to define background here, it inherits from .primary */
+}
+
+.primary.edit-submit:hover {
+  /* This hover will also inherit, but for better consistency, we'll keep the standard primary hover logic. */
+}
+
+/* UPDATE MESSAGE STYLING */
+.form-message {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 4px 0 0;
+  color: #ff5722;
+}
+
+.form-message.success-msg {
+    color: #34a853;
+    font-weight: 600;
+}

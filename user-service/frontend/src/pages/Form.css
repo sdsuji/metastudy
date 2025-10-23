@@ -1,0 +1,128 @@
+.form-container {
+  position: fixed;
+  inset: 0;
+  background: url('/option.jpg') center center / cover no-repeat;
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  overflow: hidden;
+  
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  padding: 2px 2px 10px;
+
+  width: 450px !important;
+  flex: 0 0 auto !important;
+
+  max-width: 95vw;
+  max-height: 99vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+   scrollbar-width: thin;           /* Firefox */
+  scrollbar-color: #C5BAFF #C5BAFF;   /* Firefox */
+}
+
+.form-box input,
+.form-box select {
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  outline: none;
+}
+
+.form-box button {
+  background-color: #C5BAFF;
+  color: white;
+  border: none;
+  padding: 2px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-box button:hover {
+  background-color: #b0a1f7;
+}
+
+.secondary-button {
+  background-color: #C5BAFF;
+  color: white;
+  border: none;
+  margin-bottom: 0;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.secondary-button:hover {
+  background-color: #b0a1f7;
+}
+
+.input-error::placeholder {
+  color: red;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+input:focus,
+select:focus {
+  border: 2px solid #C5BAFF;
+  outline: none;
+  box-shadow: 0 0 4px #C5BAFF;
+}
+
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+.form-message {
+  height: 14px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0;
+  margin-top: 0;
+}
+
+.form-message.success {
+  color: #006600;
+}
+
+.form-message.error {
+  color: #b30000;
+}
+.input-error {
+  border: 1px solid red;
+}
+
+.input-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
